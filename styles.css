@@ -109,6 +109,20 @@ textarea{
     height: 161px;
 }
 
+.lista-tags{
+    display: flex;
+
+}
+
+.lista-tags li {
+    display: flex;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    gap: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
 .container-upload-imagem{
     display: flex;
     flex-direction: column;
@@ -124,7 +138,97 @@ textarea{
 
 .container-imagem img {
     
-    padding: 12px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.container-imagem-nome{
+    display: flex;
+    gap: 10px;
+}
 
+.container-botoes{
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+}
+
+.container-botoes button{
+    width: 50%;
+    padding: 12px 60px 12px 40px;
+    align-items: center;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.botao-descartar {
+    background-color:var(--itens-background);
+    border: 1px solid var(--primary-color) ;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.botao-descartar::after{
+    content:"";
+    background-image: url(img/trash.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px ;
+}
+
+.botao-publicar{
+    background-color: var(--primary-color);
+    border: 0px none;
+    position: relative;
+}
+
+.botao-publicar::after{
+    content: "";
+    background-image: url(img/arrow_forward2.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform:  translateY(-50%);
+    margin-left: 8px;
+
+}
+
+.botao-carregar-imagem{
+    background-color: var(--itens-background);
+    padding: 16px 12px; 
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+}
+
+.botao-carregar-imagem::after{
+    content: "";
+    background-image: url(img/upload.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
+
+.container-descricao{
+    width: 422px;
 }
