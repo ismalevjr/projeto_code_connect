@@ -67,7 +67,7 @@ aside{
 
 main{
     background-color: var(--itens-background);
-    border: 10px;
+    border-radius: 10px;
     padding: 32px;
     display: flex;
     gap: 24px;
@@ -130,8 +130,15 @@ textarea{
     color:  var(--secondary-color);
 }
 
+.main-imagem{
+    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+}
+
 .container-imagem{
-    padding: 12px;
+    height: 368px;
+    padding: 24px 16px;
     background-color:  var(--secondary-color);
     border-radius: 8px;
 }
