@@ -34,3 +34,25 @@ inputUpload.addEventListener("change",async (evento)=> {
         }
     }
 })
+
+const inputTags = document.getElementById("input-tags");
+const listaTags = document.querySelector(".lista-tags");
+
+inputTags.addEventListener("keypress",(evento)=>{
+    if(evento.key === "Enter"){
+        evento.preventDefault();
+
+        const texto = inputTags.value.trim();
+
+        const itemDaListaTags = document.createElement("li");
+
+        const texoTags = document.createElement("p");
+        texoTags.textContent = texto;
+        const  iconeTag = document.createElement("img")
+        iconeTag.src = "img/close-black.svg";
+
+        itemDaListaTags.appendChild(texoTags);
+        itemDaListaTags
+
+    }
+})
