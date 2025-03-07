@@ -36,23 +36,55 @@ inputUpload.addEventListener("change",async (evento)=> {
 })
 
 const inputTags = document.getElementById("input-tags");
-const listaTags = document.querySelector(".lista-tags");
+const listaTags = document.getElementById("lista-tags");
 
-inputTags.addEventListener("keypress",(evento)=>{
+
+listaTags.addEventListener("click", (evento)=>{
+    if(evento.target.classList.contains("remove-tag")){
+        const tagAserRemovida = evento.target.parentElement;
+        listaTags.removeChild(tagAserRemovida);
+    }
+})
+
+const tagsDisponiveis = ["Front-end", "Programação", "Full-stack", "Back-end","CSS", "HTML"];
+
+async function verificaTagsDisponiveis(tagTexto){
+    return new Promise((resolve) =>{
+
+        setTimeout(()=>{
+            resolve(tagsDisponiveis.includes(tagTexto));
+        },100)
+    })
+}
+
+inputTags.addEventListener("keypress", async (evento)=>{
     if(evento.key === "Enter"){
         evento.preventDefault();
 
-        const texto = inputTags.value.trim();
+        const tagtexto = inputTags.value.trim();
 
+        if(tagtexto !== "" ){
+
+        try{
+        const tagExiste = await verificaTagsDisponiveis(tagtexto);
+
+        if (tagExiste) {
+            
+        
         const itemDaListaTags = document.createElement("li");
+        itemDaListaTags.classList.add("container-imagem-nome");
 
-        const texoTags = document.createElement("p");
-        texoTags.textContent = texto;
-        const  iconeTag = document.createElement("img")
-        iconeTag.src = "img/close-black.svg";
+        itemDaListaTags.innerHTML = `<p> ${tagtexto} </p> <img src="img/close-black.svg"" class="remove-tag">`;
 
-        itemDaListaTags.appendChild(texoTags);
-        itemDaListaTags
-
+        listaTags.appendChild(itemDaListaTags);
+        inputTags.value = "";
+        }else{
+            alert("Tag não foi encontrada");
+        }
+        }catch(error){
+            console.error("Erro ao verificar a existência da tag");
+            alert("Erro ao verificar a existência da tag. Verifique o console");
+        }
+    }
     }
 })

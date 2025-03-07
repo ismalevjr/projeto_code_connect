@@ -111,14 +111,15 @@ textarea{
 
 .lista-tags{
     display: flex;
-
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .lista-tags li {
     display: flex;
     background-color: var(--secondary-color);
     color: var(--background-color);
-    gap: 10px;
     padding: 4px 8px;
     border-radius: 4px;
 }
