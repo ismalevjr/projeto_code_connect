@@ -57,6 +57,8 @@ async function verificaTagsDisponiveis(tagTexto){
     })
 }
 
+
+
 inputTags.addEventListener("keypress", async (evento)=>{
     if(evento.key === "Enter"){
         evento.preventDefault();
@@ -87,4 +89,18 @@ inputTags.addEventListener("keypress", async (evento)=>{
         }
     }
     }
+})
+
+const botaPublicar = document.querySelector(".botao-publicar")
+
+botaPublicar.addEventListener("click", async (evento)=>{
+    evento.preventDefault();
+
+    const nomeDoProjeto = document.getElementById("nome").value;
+    const descricaoDoProjeto = document.getElementById("descricao").value;
+    const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map((tag) =>tag.textContent);
+
+    console.log(nomeDoProjeto)
+    console.log(descricaoDoProjeto)
+    console.log(tagsProjeto)
 })
